@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Cumpleaños Esthefany</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;600&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Para mi Esthefany</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;500;600&family=Caveat:wght@500&display=swap" rel="stylesheet">
     <style>
         /* --- ESTILOS GENERALES --- */
         :root {
-            --color-principal: #ff85a1;
-            --color-fondo: #f4f7f6;
+            --color-principal: #ff85a1; /* Rosa principal */
+            --color-secundario: #a2d2ff; /* Azul pastel */
+            --color-fondo: #fffafc; /* Fondo rosado muy clarito */
+            --color-texto: #444;
         }
 
         body {
@@ -17,161 +19,213 @@
             padding: 0;
             font-family: 'Montserrat', sans-serif;
             background-color: var(--color-fondo);
-            color: #333;
+            background-image: radial-gradient(#fff5f8 20%, transparent 20%), radial-gradient(#fff5f8 20%, transparent 20%);
+            background-size: 50px 50px;
+            background-position: 0 0, 25px 25px;
+            color: var(--color-texto);
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Para que no aparezca barra de scroll horizontal */
         }
 
-        /* --- CONTENIDO PRINCIPAL --- */
+        /* --- ELEMENTOS FLOTANTES DEL FONDO --- */
+        .elemento-fondo {
+            position: fixed;
+            top: -10vh;
+            z-index: 0; /* Detrás del contenido */
+            pointer-events: none; /* No interfieren con los clicks */
+            animation: flotarYCaer linear infinite;
+            opacity: 0.6;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+        }
+
+        @keyframes flotarYCaer {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.7; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* --- CONTENEDOR CENTRAL --- */
         .contenedor-principal {
             text-align: center;
-            padding: 50px 20px;
-            max-width: 800px;
+            padding: 40px 20px;
+            max-width: 700px;
             position: relative;
-            z-index: 10;
+            z-index: 10; /* Por delante del fondo */
         }
 
         .nombre {
             font-family: 'Dancing Script', cursive;
-            font-size: 5rem;
-            margin-bottom: 0;
-            color: #222;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            font-size: 4.5rem;
+            margin-bottom: 10px;
+            color: #d81b60;
+            text-shadow: 2px 2px 4px rgba(255, 133, 161, 0.2);
         }
 
-        .gran-texto {
-            font-size: 7rem;
+        .titulo-edad {
+            font-size: 6rem;
             font-weight: 900;
-            color: #ffde59;
+            color: #ffc107; /* Amarillo dorado */
             line-height: 1;
-            margin: 15px 0;
+            margin: 10px 0 30px;
             text-transform: uppercase;
-            text-shadow: 3px 3px 0px rgba(0,0,0,0.05);
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 0px #fff, 5px 5px 0px rgba(0,0,0,0.05);
         }
 
-        /* --- ESTILO DE LA NOTA --- */
+        /* --- CARTA / NOTA --- */
         .nota-amor {
             background-color: #fff;
             padding: 50px 40px;
-            margin: 40px auto;
-            max-width: 600px;
-            border-radius: 8px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            margin: 0 auto 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             position: relative;
-            border-left: 10px solid var(--color-principal);
-            transform: rotate(-1deg);
+            border: 2px solid #ffe0e9;
         }
 
+        /* Cinta adhesiva decorativa (washi tape) */
         .nota-amor::before {
-            content: "📍";
+            content: "";
             position: absolute;
             top: -15px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 2rem;
+            width: 120px;
+            height: 30px;
+            background-color: rgba(255, 133, 161, 0.3);
+            transform: translateX(-50%) rotate(-3deg);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .nota-amor p {
             font-family: 'Caveat', cursive;
-            font-size: 1.7rem;
+            font-size: 1.6rem;
             line-height: 1.5;
-            color: #444;
+            color: #555;
             text-align: left;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .fecha {
-            font-weight: 600;
-            letter-spacing: 1px;
-            color: #777;
-            margin-top: 30px;
             display: block;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: var(--color-principal);
+            margin-top: 30px;
             font-size: 1.1rem;
+            text-transform: uppercase;
         }
 
-        /* --- BOTÓN DE PASTEL --- */
-        .boton-pastel {
-            background-color: #fff9c4;
-            border: 4px solid #ff85a1;
-            border-radius: 50px;
-            padding: 15px 30px;
-            font-size: 1.5rem;
+        /* --- SECCIÓN DE BOTONES --- */
+        .seccion-botones {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        /* Estilo base para los botones */
+        .boton {
+            padding: 15px 35px;
+            font-size: 1.3rem;
             font-family: 'Montserrat', sans-serif;
-            font-weight: bold;
-            color: #d81b60;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
             cursor: pointer;
-            margin-top: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: transform 0.2s, box-shadow 0.2s;
-            animation: latido 1.5s infinite;
-            z-index: 20;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none; /* Para el enlace de descarga */
+            display: inline-block;
         }
 
-        .boton-pastel:hover {
-            transform: scale(1.1);
-            background-color: #fff;
+        .boton:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
 
-        .boton-pastel:active {
-            transform: scale(0.95);
+        .boton:active {
+            transform: translateY(1px) scale(0.98);
+        }
+
+        /* Botón de Sorpresa (Pastel) */
+        .boton-sorpresa {
+            background: linear-gradient(45deg, #ff85a1, #ffc1e3);
+            color: white;
+            font-size: 1.5rem;
+            animation: latido 2s infinite;
         }
 
         @keyframes latido {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); box-shadow: 0 10px 25px rgba(255, 133, 161, 0.4); }
         }
 
-        /* --- ELEMENTOS CAYENDO (Emojis y Te Amo) --- */
-        .elemento-cayendo {
+        /* Botón de Descarga */
+        .boton-descarga {
+            background: white;
+            color: var(--color-secundario);
+            border: 3px solid var(--color-secundario);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .boton-descarga i {
+            font-size: 1.4rem;
+        }
+
+        /* --- LLUVIA DE "TE AMO" --- */
+        .te-amo-cayendo {
             position: fixed;
-            top: -50px;
+            top: -10vh;
             z-index: 100;
             pointer-events: none;
-            animation: caer linear forwards;
-        }
-
-        /* Estilo específico para el texto Te Amo */
-        .texto-te-amo {
             font-family: 'Dancing Script', cursive;
-            color: #e91e63; /* Rojo rosado fuerte */
-            font-weight: bold;
-            text-shadow: 1px 1px 0px white;
+            color: #e91e63;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+            animation: caerRapido linear forwards;
         }
 
-        @keyframes caer {
-            to { transform: translateY(110vh) rotate(20deg); }
+        @keyframes caerRapido {
+            to { transform: translateY(110vh) rotate(45deg); }
         }
 
+        /* --- FOOTER --- */
         footer {
             margin-top: auto;
             width: 100%;
-            height: 100px;
-            background-color: #a7c5eb;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-weight: 600;
-            font-size: 1.2rem;
+            padding: 20px 0;
+            background-color: #fff;
+            text-align: center;
+            color: var(--color-principal);
+            font-weight: 500;
+            border-top: 2px solid #f0f0f0;
+            font-size: 0.9rem;
         }
 
+        /* --- RESPONSIVE --- */
         @media (max-width: 600px) {
             .nombre { font-size: 3.5rem; }
-            .gran-texto { font-size: 4.5rem; }
-            .nota-amor { padding: 30px 20px; width: 90%; }
+            .titulo-edad { font-size: 4.5rem; }
+            .nota-amor { padding: 30px 20px; }
+            .nota-amor p { font-size: 1.4rem; }
+            .boton { font-size: 1.1rem; padding: 12px 25px; }
         }
     </style>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
     <div class="contenedor-principal">
-        <h1 class="nombre"> !FELIZ CUMPLEAÑOS¡</h1>
-        <h1 class="nombre"> AMORCITOO </h1>
-        <div class="gran-texto">TE AMOO</div>
+         <div class="titulo-edad">FELIZ CUMPLE</div>
+         <div class="titulo-edad">MI AMORCITOO</div>
+        <div class="titulo-edad">TE AMOO</div>
         
         <div class="nota-amor">
             <p>
@@ -190,69 +244,75 @@
             <span class="fecha">19/01/2026</span>
         </div>
 
-        <button class="boton-pastel" onclick="lanzarLluviaTeAmo()">
-            🎂 ¡Sorpresa! 🎂
-        </button>
+        <div class="seccion-botones">
+            <button class="boton boton-sorpresa" onclick="lanzarLluviaTeAmo()">
+                🎂 ¡Presiona para una sorpresa! ✨
+            </button>
+
+            <a href="carta_para_esthefany.pdf" download="Carta_Especial_para_Esthefany" class="boton boton-descarga">
+                <i class="fas fa-file-download"></i> Descargar la carta que te escribí 💌
+            </a>
+        </div>
 
     </div>
 
     <footer>
-        Hecho con todo mi amor para ti - Papi Joey❤️
+        Hecho con todo mi amor para ti - Papi Joey ❤️
     </footer>
 
     <script>
-        // Función para crear emojis normales (fondo)
-        function crearEmoji() {
-            const emojis = ['💖', '🌸', '✨', '🥳', '🎁'];
+        // --- 1. DECORACIÓN DE FONDO (Estrellas y Emojis bonitos) ---
+        function crearElementoFondo() {
+            const decoraciones = ['✨', '💖', '🌟', '🌸', '🎀', '💫', '🤍', '🌷'];
             const elemento = document.createElement('div');
-            elemento.classList.add('elemento-cayendo');
-            elemento.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+            elemento.classList.add('elemento-fondo');
+            elemento.innerText = decoraciones[Math.floor(Math.random() * decoraciones.length)];
+            
+            // Posición y estilo aleatorio
             elemento.style.left = Math.random() * 100 + 'vw';
-            elemento.style.fontSize = (Math.random() * 15 + 20) + 'px';
-            elemento.style.animationDuration = (Math.random() * 3 + 4) + 's';
-            elemento.style.opacity = 0.5; // Un poco transparentes
+            elemento.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            const duracion = Math.random() * 5 + 5; // Entre 5 y 10 segundos
+            elemento.style.animationDuration = duracion + 's';
             
             document.body.appendChild(elemento);
 
-            setTimeout(() => { elemento.remove(); }, 6000);
+            // Eliminar el elemento después de que caiga
+            setTimeout(() => { elemento.remove(); }, duracion * 1000);
         }
 
-        // Iniciar lluvia suave de emojis
-        setInterval(crearEmoji, 500);
+        // Crear un elemento decorativo cada 400ms
+        setInterval(crearElementoFondo, 400);
+        // Crear algunos al inicio para que no empiece vacío
+        for(let i=0; i<10; i++) crearElementoFondo();
 
-        // --- FUNCIÓN DEL BOTÓN PASTEL ---
+
+        // --- 2. FUNCIÓN DEL BOTÓN DE SORPRESA (Lluvia de "TE AMO") ---
         function lanzarLluviaTeAmo() {
-            // Generar muchos "Te Amo" rápidamente
             let contador = 0;
             const intervalo = setInterval(() => {
                 crearTeAmo();
                 contador++;
-                if(contador > 50) { // Parar después de 50 "Te amos" para no saturar
+                if(contador > 60) { // Lanza 60 mensajes
                     clearInterval(intervalo);
                 }
-            }, 100); // Sale uno cada 0.1 segundos
+            }, 80); // Muy rápido
         }
 
         function crearTeAmo() {
-            const frases = ['TE AMO ❤️', 'Mi Vida 😍', 'Feliz Cumple 🎂', 'TE AMO'];
+            const frases = ['TE AMO ❤️', 'Eres mi vida 😍', 'Feliz Cumpleaños 🎂', 'Mi niña hermosa ✨', 'TE ADORO 💖'];
             const elemento = document.createElement('div');
-            elemento.classList.add('elemento-cayendo', 'texto-te-amo');
+            elemento.classList.add('te-amo-cayendo');
             elemento.innerText = frases[Math.floor(Math.random() * frases.length)];
             
-            // Posición aleatoria
-            elemento.style.left = Math.random() * 90 + 'vw';
-            
-            // Tamaño grande y variado
-            elemento.style.fontSize = (Math.random() * 20 + 30) + 'px';
-            
-            // Caída rápida
-            elemento.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            elemento.style.left = Math.random() * 95 + 'vw';
+            elemento.style.fontSize = (Math.random() * 25 + 25) + 'px'; // Grandes
+            const duracion = Math.random() * 2 + 2; // Caen rápido (2-4s)
+            elemento.style.animationDuration = duracion + 's';
             
             document.body.appendChild(elemento);
-
-            setTimeout(() => { elemento.remove(); }, 5000);
+            setTimeout(() => { elemento.remove(); }, duracion * 1000);
         }
     </script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </body>
 </html>
