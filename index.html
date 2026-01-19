@@ -9,8 +9,7 @@
         /* --- ESTILOS GENERALES --- */
         :root {
             --color-principal: #ff85a1;
-            --color-fondo: #f4f7f6; /* Fondo ligeramente grisáceo para contraste */
-            --amarillo-nota: #fff9c4;
+            --color-fondo: #f4f7f6;
         }
 
         body {
@@ -23,32 +22,7 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            overflow-x: hidden; /* Evita scroll horizontal por los emojis */
-        }
-
-        /* Decoraciones estáticas de fondo (las que ya tenías) */
-        .decoracion-fija {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        /* --- ESTILOS DE LA LLUVIA DE EMOJIS --- */
-        .emoji-cayendo {
-            position: fixed;
-            top: -50px; /* Empiezan fuera de la pantalla arriba */
-            z-index: 100; /* Para que caigan por encima de todo */
-            font-size: 24px;
-            animation: caer linear forwards;
-            opacity: 0.8; /* Un poco transparentes para no tapar mucho */
-        }
-
-        @keyframes caer {
-            to {
-                transform: translateY(110vh) rotate(360deg); /* Caen más abajo del final y rotan */
-            }
+            overflow-x: hidden;
         }
 
         /* --- CONTENIDO PRINCIPAL --- */
@@ -57,7 +31,7 @@
             padding: 50px 20px;
             max-width: 800px;
             position: relative;
-            z-index: 1;
+            z-index: 10;
         }
 
         .nombre {
@@ -71,14 +45,14 @@
         .gran-texto {
             font-size: 7rem;
             font-weight: 900;
-            color: #ffde59; /* Amarillo */
+            color: #ffde59;
             line-height: 1;
             margin: 15px 0;
             text-transform: uppercase;
             text-shadow: 3px 3px 0px rgba(0,0,0,0.05);
         }
 
-        /* --- ESTILO DE LA NOTA (CARTA) --- */
+        /* --- ESTILO DE LA NOTA --- */
         .nota-amor {
             background-color: #fff;
             padding: 50px 40px;
@@ -88,10 +62,9 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             position: relative;
             border-left: 10px solid var(--color-principal);
-            transform: rotate(-1deg); /* Pequeña inclinación estética */
+            transform: rotate(-1deg);
         }
 
-        /* Chincheta decorativa */
         .nota-amor::before {
             content: "📍";
             position: absolute;
@@ -99,11 +72,10 @@
             left: 50%;
             transform: translateX(-50%);
             font-size: 2rem;
-            z-index: 2;
         }
 
         .nota-amor p {
-            font-family: 'Caveat', cursive; /* Fuente de letra corrida */
+            font-family: 'Caveat', cursive;
             font-size: 1.7rem;
             line-height: 1.5;
             color: #444;
@@ -120,12 +92,65 @@
             font-size: 1.1rem;
         }
 
-        /* --- FOOTER --- */
+        /* --- BOTÓN DE PASTEL --- */
+        .boton-pastel {
+            background-color: #fff9c4;
+            border: 4px solid #ff85a1;
+            border-radius: 50px;
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            color: #d81b60;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+            animation: latido 1.5s infinite;
+            z-index: 20;
+        }
+
+        .boton-pastel:hover {
+            transform: scale(1.1);
+            background-color: #fff;
+        }
+
+        .boton-pastel:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes latido {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* --- ELEMENTOS CAYENDO (Emojis y Te Amo) --- */
+        .elemento-cayendo {
+            position: fixed;
+            top: -50px;
+            z-index: 100;
+            pointer-events: none;
+            animation: caer linear forwards;
+        }
+
+        /* Estilo específico para el texto Te Amo */
+        .texto-te-amo {
+            font-family: 'Dancing Script', cursive;
+            color: #e91e63; /* Rojo rosado fuerte */
+            font-weight: bold;
+            text-shadow: 1px 1px 0px white;
+        }
+
+        @keyframes caer {
+            to { transform: translateY(110vh) rotate(20deg); }
+        }
+
         footer {
             margin-top: auto;
             width: 100%;
             height: 100px;
-            background-color: #a7c5eb; /* Azul pastel */
+            background-color: #a7c5eb;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -134,26 +159,19 @@
             font-size: 1.2rem;
         }
 
-        /* --- RESPONSIVE (Celulares) --- */
         @media (max-width: 600px) {
             .nombre { font-size: 3.5rem; }
             .gran-texto { font-size: 4.5rem; }
             .nota-amor { padding: 30px 20px; width: 90%; }
-            .nota-amor p { font-size: 1.4rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="decoracion-fija">
-        <span style="position:absolute; top:10%; left:5%; font-size: 20px;">✨</span>
-        <span style="position:absolute; top:15%; right:10%; font-size: 18px;">💖</span>
-        <span style="position:absolute; bottom:20%; left:8%; font-size: 22px;">🌸</span>
-    </div>
-
     <div class="contenedor-principal">
-        <h1 class="nombre"> FELIZ CUMPLE AMORCITO </h1>
-        <div class="gran-texto"> TE AMO </div>
+        <h1 class="nombre"> !FELIZ CUMPLEAÑOS¡</h1>
+        <h1 class="nombre"> AMORCITOO </h1>
+        <div class="gran-texto">TE AMOO</div>
         
         <div class="nota-amor">
             <p>
@@ -169,8 +187,12 @@
                 Valora tu vida, que es única e incomparable. Feliz cumpleaños, amorcito mío. Eres mi todo y deseo, con todo mi corazón, que todos tus sueños se hagan realidad.
             </p>
             
-            <span class="fecha">19 de Enero de 2026</span>
+            <span class="fecha">26 de septiembre de 2026</span>
         </div>
+
+        <button class="boton-pastel" onclick="lanzarLluviaTeAmo()">
+            🎂 ¡Sorpresa! 🎂
+        </button>
 
     </div>
 
@@ -179,35 +201,56 @@
     </footer>
 
     <script>
+        // Función para crear emojis normales (fondo)
         function crearEmoji() {
-            const emojis = ['💖', '🎂', '🎉', '🌸', '✨', '🥳', '🎁'];
-            const emoji = document.createElement('div');
-            emoji.classList.add('emoji-cayendo');
-            emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+            const emojis = ['💖', '🌸', '✨', '🥳', '🎁'];
+            const elemento = document.createElement('div');
+            elemento.classList.add('elemento-cayendo');
+            elemento.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+            elemento.style.left = Math.random() * 100 + 'vw';
+            elemento.style.fontSize = (Math.random() * 15 + 20) + 'px';
+            elemento.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            elemento.style.opacity = 0.5; // Un poco transparentes
             
-            // Posición horizontal aleatoria
-            emoji.style.left = Math.random() * 100 + 'vw';
-            
-            // Tamaño aleatorio entre 20px y 35px
-            emoji.style.fontSize = (Math.random() * 15 + 20) + 'px';
-            
-            // Duración de la caída aleatoria entre 3 y 6 segundos
-            emoji.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            document.body.appendChild(elemento);
 
-            document.body.appendChild(emoji);
-
-            // Eliminar el emoji después de que caiga para que no se acumulen infinitamente
-            setTimeout(() => {
-                emoji.remove();
-            }, 6000);
+            setTimeout(() => { elemento.remove(); }, 6000);
         }
 
-        // Generar un emoji nuevo cada 300 milisegundos
-        setInterval(crearEmoji, 300);
+        // Iniciar lluvia suave de emojis
+        setInterval(crearEmoji, 500);
 
-        // Generar un primer lote rápido al cargar la página
-        for(let i = 0; i < 15; i++) {
-            setTimeout(crearEmoji, i * 100);
+        // --- FUNCIÓN DEL BOTÓN PASTEL ---
+        function lanzarLluviaTeAmo() {
+            // Generar muchos "Te Amo" rápidamente
+            let contador = 0;
+            const intervalo = setInterval(() => {
+                crearTeAmo();
+                contador++;
+                if(contador > 50) { // Parar después de 50 "Te amos" para no saturar
+                    clearInterval(intervalo);
+                }
+            }, 100); // Sale uno cada 0.1 segundos
+        }
+
+        function crearTeAmo() {
+            const frases = ['TE AMO ❤️', 'Mi Vida 😍', 'Feliz Cumple 🎂', 'TE AMO'];
+            const elemento = document.createElement('div');
+            elemento.classList.add('elemento-cayendo', 'texto-te-amo');
+            elemento.innerText = frases[Math.floor(Math.random() * frases.length)];
+            
+            // Posición aleatoria
+            elemento.style.left = Math.random() * 90 + 'vw';
+            
+            // Tamaño grande y variado
+            elemento.style.fontSize = (Math.random() * 20 + 30) + 'px';
+            
+            // Caída rápida
+            elemento.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            
+            document.body.appendChild(elemento);
+
+            setTimeout(() => { elemento.remove(); }, 5000);
         }
     </script>
 
