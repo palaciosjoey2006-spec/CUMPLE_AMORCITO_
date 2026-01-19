@@ -1,152 +1,203 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title> Feliz Cumpleaños Amorcito Mia 💖</title>
+<meta charset="UTF-8">
+<title>Feliz Cumpleaños Mi Amor 💖</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(180deg, #fff0f5, #ffe6ee);
-            text-align: center;
-            overflow-x: hidden;
-        }
+<style>
+    body {
+        margin: 0;
+        background: #fff;
+        font-family: 'Georgia', 'Times New Roman', cursive;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
 
-        h1 {
-            font-size: 50px;
-            color: #e63946;
-            margin-top: 60px;
-            animation: latido 1.5s infinite;
-        }
+    .carta {
+        max-width: 750px;
+        padding: 40px;
+        text-align: center;
+        animation: aparecer 2s ease;
+        z-index: 1;
+    }
 
-        h2 {
-            font-size: 28px;
-            color: #ff6b81;
-            margin-top: 10px;
-        }
+    h1 {
+        color: #e63946;
+        font-size: 38px;
+        margin-bottom: 15px;
+        letter-spacing: 2px;
+    }
 
-        .fecha {
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 30px;
-        }
+    .contador {
+        font-size: 20px;
+        color: #ff4d6d;
+        margin-bottom: 30px;
+        font-weight: bold;
+    }
 
-        .mensaje {
-            max-width: 700px;
-            margin: auto;
-            font-size: 20px;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-        }
+    .texto {
+        font-size: 21px;
+        color: #111;
+        line-height: 1.8;
+        margin-bottom: 30px;
+    }
 
-        .corazon {
-            font-size: 60px;
-            animation: flotar 3s infinite;
-        }
+    .texto p {
+        margin-bottom: 18px;
+    }
 
-        button {
-            background: #ff4d6d;
-            color: white;
-            border: none;
-            padding: 15px 35px;
-            font-size: 18px;
-            border-radius: 30px;
-            cursor: pointer;
-            margin-top: 30px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+    .lista span {
+        display: block;
+        margin: 6px 0;
+        font-size: 20px;
+    }
 
-        button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
+    .firma {
+        margin-top: 30px;
+        font-size: 22px;
+        font-style: italic;
+    }
 
-        footer {
-            margin-top: 80px;
-            font-size: 16px;
-            color: #777;
-            padding-bottom: 40px;
-        }
+    .corazon {
+        font-size: 45px;
+        margin-top: 20px;
+        animation: latido 1.5s infinite;
+    }
 
-        /* Animaciones */
-        @keyframes latido {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
+    .emoji {
+        position: fixed;
+        top: -20px;
+        font-size: 28px;
+        animation: caer 4s linear;
+        z-index: 0;
+    }
 
-        @keyframes flotar {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0); }
-        }
+    @keyframes latido {
+        0%,100% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+    }
 
-        @keyframes caer {
-            0% { transform: translateY(-20px); opacity: 1; }
-            100% { transform: translateY(100vh); opacity: 0; }
-        }
-    </style>
+    @keyframes aparecer {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes caer {
+        from { transform: translateY(-20px); opacity: 1; }
+        to { transform: translateY(100vh); opacity: 0; }
+    }
+</style>
 </head>
 
 <body>
 
-    <h1>💖 !!! FELIZ CUMPLE MI AMORCITO ¡¡¡ 💖</h1>
-    <h2> Para: Esthefany Meneses</h2>
-    <p class="fecha">ES HOYYY ES HOYYY </p>
+<div class="carta">
 
-    <div class="corazon">❤️</div>
+    <h1> 💖 !!! FELIZ CUMPLEAÑOS, MI AMORCITO LINDA ¡¡¡ 💖</h1>
 
-    <div class="mensaje">
-        Mi amorcito.
-        En este dia tan especial quiero celebrarte y
-        recordarte cuanto significas para mi,
-        Tu cumpleaños es una oportunidad perfecta para 
-        agradecer a Diosito por haberte dado la vida.
-        Tu bondad, tu risa y tu amor hacen que cada dia 
-        sea mejor y brillante. 
-        Un dia como hoy hace 21 años es tan especial
-        porque nacio la mujer de mi vida mi niña el 
-        Amorcito que quiero para toda mi vida.
-        Yo Te amo mucho y estoy muy feliz por tenerte en 
-        mi vida, usted es muy especial mi amorcito
-        vale mucho mi amorcito y como te he dicho sigue 
-        adelante que usted nacio por un proposito 
-        y valore mucho su vida que es unica e incomparable
-        Feliz cumple Amorcito mia.
-        
-        <br><br>
-        Eres mi todo y deseo que todos tus sueños se hagan
-        realidad.
-        <br><br>
-        Te ame, Te amo y Te voy a Amar Siempre 💕
+    <div class="contador" id="contador">Cargando conteo regresivo...</div>
+
+    <!-- CARTA LARGA -->
+    <div class="texto">
+        <p>
+            Mi amorcito, en este día tan especial quiero celebrarte  
+            y recordarte cuánto significas para mí.  
+            Tu cumpleaños es la oportunidad perfecta para agradecerle  
+            a Diosito por haberte dado la vida.
+        </p>
+
+        <p>
+            Tu bondad, tu risa y tu amor hacen que cada día  
+            sea mejor y más brillante.  
+            Un día como hoy, hace 21 años, nació la mujer de mi vida,  
+            mi niña, el amorcito que quiero para toda mi vida.
+        </p>
+
+        <p>
+            Yo te amo mucho y estoy muy feliz por tenerte en mi vida.  
+            Eres muy especial, mi amorcito, vales muchísimo.  
+            Como siempre te digo, sigue adelante, porque naciste  
+            con un propósito hermoso.
+        </p>
+
+        <p>
+            Valora tu vida, que es única e incomparable.  
+            <strong>Feliz cumpleaños, amorcito mío.</strong>
+        </p>
+
+        <p>
+            Eres mi todo y deseo, con todo mi corazón,  
+            que todos tus sueños se hagan realidad.
+        </p>
     </div>
 
-    <button onclick="sorpresa()">✨ Presiona aquí ✨</button>
+    <!-- BLOQUE QUE FALTABA -->
+    <h1>FELIZ CUMPLEAÑOS A...</h1>
 
-    <footer>
-        CON TODO MI AMOR 💖<br>
-        — Joey Palacios
-    </footer>
+    <div class="lista">
+        <span>Mi amor.</span>
+        <span>Mi alma gemela.</span>
+        <span>Mi mejor amigo.</span>
+        <span>Mi confidente.</span>
+        <span>Mi familia.</span>
+        <span>Mis mejores recuerdos.</span>
+        <span>Mi hoy, mi mañana y mi por siempre.</span>
+        <span>Mi razón para sonreír.</span>
+        <span>Mi risa.</span>
+        <span>Mi corazón y alma.</span>
+        <span>Mi apoyo.</span>
+        <span>Mi mundo entero.</span>
+        <span>Mi todo.</span>
+        <br>
+        <span><strong>Mi único y especial.</strong></span>
+        <span><strong>El amor de mi vida.</strong></span>
+    </div>
 
-    <script>
-        function sorpresa() {
-            alert("💖 FELIZ CUMPLE MI AMOSHITO 💖\nGRACIAS POR EXISTIR Y HACER UN MUNDO MEJOR.");
+    <div class="firma">Con todo mi amor - Joey Palacios💖</div>
+    <div class="corazon">❤️</div>
+</div>
 
-            for (let i = 0; i < 40; i++) {
-                let elemento = document.createElement("div");
-                elemento.innerHTML = Math.random() > 0.5 ? "💖" : "✨";
-                elemento.style.position = "fixed";
-                elemento.style.left = Math.random() * 100 + "vw";
-                elemento.style.top = "-20px";
-                elemento.style.fontSize = "30px";
-                elemento.style.animation = "caer 4s linear";
-                document.body.appendChild(elemento);
+<script>
+/* CONTEO REGRESIVO */
+const fechaCumple = new Date("2026-01-19T00:00:00").getTime();
+const contador = document.getElementById("contador");
 
-                setTimeout(() => elemento.remove(), 4000);
-            }
-        }
-    </script>
+setInterval(() => {
+    const ahora = new Date().getTime();
+    const diferencia = fechaCumple - ahora;
+
+    if (diferencia <= 0) {
+        contador.innerHTML = "🎉 ¡HOY ES TU DÍA, MI AMOR! 🎉";
+        return;
+    }
+
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+    const segundos = Math.floor((diferencia / 1000) % 60);
+
+    contador.innerHTML = `⏳ Faltan ${dias} días, ${horas}h ${minutos}m ${segundos}s`;
+}, 1000);
+
+/* EMOJIS AL ABRIR */
+const emojis = ["🎂", "💖", "🎉", "✨", "❤️"];
+
+window.onload = () => {
+    for (let i = 0; i < 35; i++) {
+        const emoji = document.createElement("div");
+        emoji.className = "emoji";
+        emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+        emoji.style.left = Math.random() * 100 + "vw";
+        emoji.style.animationDuration = (Math.random() * 2 + 3) + "s";
+        document.body.appendChild(emoji);
+        setTimeout(() => emoji.remove(), 5000);
+    }
+};
+</script>
 
 </body>
 </html>
+
